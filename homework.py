@@ -10,8 +10,7 @@ class InfoMessage:
     duration: float
     distance: float
     speed: float
-    calories: float
-    
+    calories: float    
     MESSAGE_CONST: ClassVar[str] = ('Тип тренировки: {training_type}; '
                                     'Длительность: {duration:.3f} ч.; '
                                     'Дистанция: {distance:.3f} км; '
