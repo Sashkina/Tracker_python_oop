@@ -11,6 +11,7 @@ class InfoMessage:
     distance: float
     speed: float
     calories: float
+    
     MESSAGE_CONST: ClassVar[str] = ('Тип тренировки: {training_type}; '
                                     'Длительность: {duration:.3f} ч.; '
                                     'Дистанция: {distance:.3f} км; '
@@ -123,13 +124,11 @@ class Swimming(Training):
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     workout_dict = {'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking}
-    while True:
-        try:
-            return workout_dict[workout_type](*data)
-        except KeyError:
-            print('Данные для использования трекером могут иметь вид:'
-                  '"SWM" для плавания "RUN" для бега'
-                  ' или "WLK" для спортивной хотьбы')
+    try:
+        return workout_dict[workout_type](*data)
+    except KeyError:
+        print(f'Неверный тип тренировки: {workout_type}. '
+              f'Возможные типы тренировки: {", ".join(workout_dict.keys())}.')
 
 
 def main(training: Training) -> None:
