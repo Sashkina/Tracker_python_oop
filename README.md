@@ -64,3 +64,5 @@ pip install -r requirements.txt
 ```
 python3 homework.py
 ```
+### Автор  
+Сашкина Кристина
